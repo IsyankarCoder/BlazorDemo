@@ -1,0 +1,49 @@
+﻿@page "/calculator"
+
+<h1>Basic Calculator Demo Using Blazor</h1>
+<hr />
+<div>
+    <div class="row">
+        <div class="col-sm-3">
+            <p>First Number</p>
+        </div>
+        <div class="col-sm-4">
+            <input placeholder="Enter First Number" bind="@num1" />
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-sm-3">
+            <p>Second Number</p>
+        </div>
+        <div class="col-sm-4">
+            <input placeholder="Enter Second Number" bind="@num2" />
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-sm-3">
+            <p>Total Number</p>
+        </div>
+        <div class="col-sm-4">
+            <input readonly bind="@finalResult" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2">
+            <button class="btn" click="@AddNumbers">Add (+)</button>
+        </div>
+    </div>
+</div>
+
+@functions
+{
+    string num1;
+    string num2;
+    string finalResult;
+
+    void AddNumbers()
+    {
+        finalResult = (Convert.ToDouble(num1) + Convert.ToDouble(num2)).ToString();
+    }
+}
